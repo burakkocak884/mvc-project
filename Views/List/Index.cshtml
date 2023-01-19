@@ -1,14 +1,18 @@
+@using mvc_project.Models
 
+
+@{
+    var myCars = ViewBag.MyCars;
+}
 
 <div style="background-color:#fff3e6 ;">
 <h2>List of make(s) and model(s)</h2>
 
-<ol>
-    <li>Honda Civic</li>
-    <li>Toyota Corolla</li>
-    <li>Nissan Maxima</li>
-    <li>Chevy Cruze</li>
-</ol>
+<ul>
+    @foreach(Car car in myCars){
+        <li>@car.Year - @car.Make - @car.Model, @car.Color @car.EngineSize @car.DriveTrain @car.BodyStyle</li>
+    }
+</ul>
 
 
 </div>

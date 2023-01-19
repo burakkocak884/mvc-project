@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "NGF3KVJIBfz4pZ48ROrArlRUZrJ1IekUDg5QR1qpiyiw2379tRYcB0c5RinyeCtwWGMcakC2zTrd6h6q9WX0tw==",
+  "success": true,
+  "projectFilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/mvc-project.csproj",
+  "expectedPackageFiles": [
+    "/Users/burakkocak/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512",
+    "/Users/burakkocak/.nuget/packages/microsoft.netcore.app.host.osx-x64/3.0.3/microsoft.netcore.app.host.osx-x64.3.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
