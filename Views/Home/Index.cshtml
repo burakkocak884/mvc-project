@@ -1,12 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<div style="width: 60rem; margin: 0px 30px;">
+    <div class="text-center" style="background-color: #e6ffff;">
+        <h1 class="display-4">Welcome</h1>
+    </div>
 
-<div class="text-center" style="background-color: #e6ffff;">
-    <h1 class="display-4">Welcome</h1>
-    <p style="background-color: lightgray; color: brown;font-family: italic;">This is a platform where service history of vehicle(s) can be tracked.</p>
-</div>
 
-<div>
-    <img src="@Url.Content("~/wwwroot/cars-12.jpg")">
+    <div style = "float: center;">
+        <form  action="">
+            <input type = "text" placeholder="Email">
+            <input type = "text" placeholder="Password">
+            <input type="submit" value="Log In">
+            
+        </form>
+    </div>
+
 </div>

@@ -1,0 +1,34 @@
+@using mvc_project.Models
+
+
+@{
+    var user = ViewBag.User;
+}
+
+
+
+
+
+<div style="width: 1200px;">
+  <form style="width: 98%;" action="Car/AddNewCar">
+    <div style = "width: 98%;display: flex;">
+      <input style = "width: 19%;margin: 0.5%;" type="text" id="VIN" name="VIN" maxlength="17" placeholder = "VIN"><br><br>
+      <input style = "width: 19%;margin: 0.5%;" type="number" id="Year" name="Year" maxlength="4" placeholder = "Year"><br><br>
+      <input style = "width: 19%;margin: 0.5%;" type="text" id="Make" name="Make" placeholder = "Make"><br><br>
+      <input style = "width: 19%;margin: 0.5%;" type="text" id="Model" name="Model" placeholder = "Model"><br><br>
+      <input style = "width: 19%;margin: 0.5%;" type="text" id="Trim" name="Trim" placeholder = "Trim"><br><br>
+
+    </div>
+    <div  style = "width: 98%;display: flex;">
+      <input style = "width: 19.5%;margin: 0.5%;"type="number" id="Mileage" name="Mileage" placeholder = "Mileage"><br><br>
+      <input style = "width: 19.5%;margin: 0.5%;"type="text" id="DriveTrain" name="DriveTrain" placeholder = "Drive Train"><br><br>
+      <input style = "width: 19.5%;margin: 0.5%;"type="text" id="EngineSize" name="EngineSize" placeholder = "Engine Size"><br><br>
+      <input style = "width: 19.5%;margin: 0.5%;"type="text" id="BodyStyle" name="BodyStyle" placeholder = "Body Style"><br><br>
+      <input style = "width: 19.5%;margin: 0.5%;" type="text" id="Color" name="Color" placeholder = "Color"><br><br>
+    </div>
+    <div style = "width: 99%;">
+      @* <input type = "hidden" Id = "UserId" name= "UserId" value="@user.Id"> *@
+      <input style = "width: 98%;margin: 0.5%;" type="submit" value="Add Vehicle">
+    </div>
+    
+  </form>

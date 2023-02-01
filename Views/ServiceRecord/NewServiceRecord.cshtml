@@ -1,0 +1,23 @@
+
+@using mvc_project.Models
+
+
+@{
+    var myCar = ViewBag.Car;
+}
+
+<div style="width: 1200px;">
+    <form style="width: 98%;" action="">
+        <div style = "width: 98%;display: flex;">
+            <input style = "width: 19%;margin: 0.5%;" type="date" id="Date" name="Date" placeholder = "Date"><br><br>
+            <input style = "width: 19%;margin: 0.5%;" type="number" id="Mileage" name="Mileage" placeholder = "Mileage"><br><br>
+            <input style = "width: 19%;margin: 0.5%;" type="number" id="EstimateCost" name="EstimateCost" placeholder = "Estimate Cost"><br><br>
+            <input style = "width: 60%;margin: 0.5%;" type="textarea" id="Description" name="Description" placeholder = "Description">
+            @* <input  type="hidden" id="UserId" name="UserId" value="@myCar.UserId"> 
+            <input  type="hidden" id="VehicleId" name="VehicleId" value="@myCar.Id"> *@
+        </div>
+        <div style = "width: 99%;">
+            <input style = "width: 98%;margin: 0.5%;" type="submit" value="Add a Service Record">
+        </div>
+    </form>
+

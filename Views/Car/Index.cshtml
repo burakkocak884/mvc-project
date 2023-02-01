@@ -1,0 +1,179 @@
+@using mvc_project.Models
+
+
+@{
+    var myCars = ViewBag.MyCars;
+    var user = ViewBag.User;
+    var userId = (user != null )? user.Id : string.Empty; 
+}
+
+
+<div style="width: 80rem;">
+  <form style="width: 98%;" asp-controller="Car" asp-action="AddNewCar">
+    <div class = "newcar-input-field" >
+      <input type="text" id="VIN" name="VIN" maxlength="17" placeholder = "VIN"><br><br>
+      <input type="number" id="Year" name="Year" maxlength="4" placeholder = "Year"><br><br>
+      <input type="text" id="Make" name="Make" placeholder = "Make"><br><br>
+      <input type="text" id="Model" name="Model" placeholder = "Model"><br><br>
+      <input type="text" id="Trim" name="Trim" placeholder = "Trim"><br><br>
+    </div>
+    
+    <div  class = "newcar-input-field" >
+      
+      <input type="number" id="Mileage" name="Mileage" placeholder = "Mileage"><br><br>
+      
+      <select class = "drive-dropdown" name="DriveTrain" placeholder = "Drive Train">
+        <option value="" disabled selected hidden>Drive Train</option>
+        <option value = "FWD - AT">FWD - AT</option>
+        <option value = "FWD - MT">FWD - MT</option>
+        <option value = "FWD - CVT">FWD - CVT</option>
+        <option value = "RWD - AT">RWD - AT</option>
+        <option value = "RWD - MT">RWD - MT</option>
+        <option value = "RWD - CVT">RWD - CVT</option>
+        <option value = "AWD - AT">AWD - AT</option>
+        <option value = "AWD - MT">AWD - MT</option>
+        <option value = "AWD - CVT">AWD - CVT</option>
+        <option value = "4WD - AT">4WD - AT</option>
+        <option value = "4WD - MT">4WD - MT</option>
+        <option value = "4WD - CVT">4WD - CVT</option>
+        <option value = "FWD - Electric">FWD - Electric</option>
+        <option value = "RWD - Electric">RWD - Electric</option>
+        <option value = "AWD - Electric">AWD - Electric</option>
+      </select>
+      
+      <input type="text" id="EngineSize" name="EngineSize" placeholder = "Engine Size"><br><br>
+      
+      <select class = "drive-dropdown" name="BodyStyle">
+        <option value="" disabled selected hidden>Body Style</option>
+        <option value = "Sedan">Sedan</option>
+        <option value = "Coupe">Coupe</option>
+        <option value = "Wagon">Wagon</option>
+        <option value = "Hatchback">Hatchback</option>
+        <option value = "CUV">CUV</option>
+        <option value = "SUV">SUV</option>
+        <option value = "Pick-Up">Pick-Up</option>
+        <option value = "Truck">Truck</option>
+        <option value = "Van">Van</option>
+      </select>
+
+      <select class = "drive-dropdown" name="Color">
+        <option value="" disabled selected hidden>Color</option>
+        <option value = "Gray">Gray</option>
+        <option value = "Black">Black</option>
+        <option value = "White">White</option>
+        <option value = "Red">Red</option>
+        <option value = "Blue">Blue</option>
+        <option value = "Tan">Tan</option>
+        <option value = "Silver">Silver</option>
+        <option value = "Green">Green</option>
+        <option value = "Red">Orange</option>
+        <option value = "Blue">Pink</option>
+        <option value = "Tan">Purple</option>
+        <option value = "Silver">Yellow</option>
+      </select>
+    </div>
+
+    <div style = "width: 99%;">
+      <input type = "hidden" Id = "UserId" name= "UserId" value="@userId">
+      <input style = "width: 98%;margin: 0.5%;" type="submit" value="Add Vehicle">
+    </div>
+  </form>
+
+  <div style="width: 96%;padding: 4px;background-color:#fff3e6 ;">
+  
+    <h2 style="padding-left: 6px;">Vehicles for <span class = "user-name">N/A</span></h2>
+    
+    <table id="service-records-grid">
+                    <tr>
+                        <th class = "small-column-year">Year</th>
+                        <th class = "medium-column">Make</th>
+                        <th class = "medium-column">Model</th>
+                        <th class = "medium-column">Trim</th>
+                        <th class = "small-column-engine">Engine Size</th>
+                        <th class = "small-column">Drive train</th>
+                        <th class = "small-column">Color</th>
+                        <th class = "small-column">Body Style</th>
+                        <th class = "large-column">Vehicle Identification Number</th>
+                    </tr>
+                    @if(myCars != null){
+                      @foreach(Car car in myCars){
+                            <tr >
+                              <td class = "small-column-year"><a asp-controller="ServiceRecord" asp-action="GetServiceRecords" asp-route-id = "@car.Id" >@car.Year</a></td>
+                              <td class = "medium-column">@car.Make </td>
+                              <td class = "medium-column">@car.Model</td>
+                              <td class = "medium-column">@car.Trim</td>
+                              <td class = "small-column-engine">@car.EngineSize</td>
+                              <td class = "small-column">@car.DriveTrain</td>
+                              <td class = "small-column">@car.Color </td>
+                              <td class = "small-column">@car.BodyStyle</td>
+                              <td class = "large-column">@car.VIN</td>
+                            </tr>
+                      }
+                    }
+    </table>
+  </div>
+</div>
+
+
+
+
+<style>
+#service-records-grid {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#service-records-grid td, #service-records-grid th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#service-records-grid tr:nth-child(even){background-color: #f2f2f2;}
+
+@* #service-records-grid tr:hover {background-color: #ddd;} *@
+
+#service-records-grid th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+
+.small-column{
+width: 10%;
+}
+.small-column-year{
+width: 6%;
+}
+.small-column-engine{
+width: 14%;
+}
+.medium-column{
+width: 10%;
+}
+.large-column{
+width: 20%;
+}
+
+.newcar-input-field{
+  width: 98%;
+  display: flex;
+}
+
+.newcar-input-field input{
+  width: 19%;
+  margin: 0.5%;
+}
+.user-name{
+  font-family: 'Brush Script MT', cursive;
+  color: peru;
+  font-style: 
+}
+.drive-dropdown{
+width: 20%;
+margin: 0.5%;
+}
+
+</style>

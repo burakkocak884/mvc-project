@@ -1,0 +1,114 @@
+@using mvc_project.Models
+
+
+@{
+    var AllRecords = ViewBag.ServiceRecordsHistory;
+    var total = 0;
+}
+
+
+
+<div style="width: 80rem; background-color:#e6f2ff ;">
+
+  <h1>All the Service Records in Database</h1>
+
+  <table id="service-records-grid">
+                  <tr>
+                      <th class = "small-column">Date</th>
+                      <th class = "medium-column-header">Vehicle</th>
+                      <th class = "small-column">Mileage</th>
+                      <th class = "large-column">Description</th>
+                      <th class = "small-column">Estimate Cost($)</th>
+                  </tr>
+                  @if(AllRecords != null)
+                  {
+                    @foreach(ServiceRecordHistory record in AllRecords)
+                    {
+                        <tr>
+                            <td class = "small-column">@record.Date</td>
+                            <td class = "medium-column-data">@record.Year @record.Make @record.Model</td>
+                            <td class = "small-column">@record.Mileage</td>
+                            <td class = "large-column">@record.Description</td>
+                            <td class = "money-small-column">@record.EstimateCost</td>
+                        </tr>
+                        total += record.EstimateCost;
+                    }
+                  }
+  </table>
+  <table id="service-records-grid">
+    <tr class = "total-row">
+      <td class = "large-column-total"><span style = "text-align: right;">Total $</span></td>
+      <td class = "small-column-total-cost"><span class = "small-column-total-cost-text">@total</span></td>
+    </tr>
+  </table>
+
+
+</div>
+
+
+
+<style>
+#service-records-grid {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#service-records-grid td, #service-records-grid th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#service-records-grid tr:nth-child(even){background-color: #f2f2f2;}
+
+#service-records-grid tr:hover {background-color: #ddd;}
+
+#service-records-grid th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+.small-column{
+width: 10%;
+text-align: center;
+}
+.money-small-column-header{
+width: 14%;
+text-align: right;
+}
+.money-small-column{
+width: 14%;
+text-align: right;
+}
+.medium-column-header{
+width: 16%;
+text-align: center;
+}
+.medium-column-data{
+width: 16%;
+text-align: left;
+}
+.large-column{
+width: 50%;
+text-align: left;
+}
+.large-column-total{
+width: 84%;
+text-align: right;
+font: bold;
+border: none;
+}
+.small-column-total-cost{
+width: 16%;
+text-align: right;
+}
+.total-row{
+    background-color: #d9faeb;
+}
+.small-column-total-cost-text{
+color: red;
+}
+
+</style>

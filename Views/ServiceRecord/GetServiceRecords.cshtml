@@ -1,0 +1,119 @@
+@using mvc_project.Models
+
+
+@{
+    var myRecords = ViewBag.ServiceRecords;
+    var myCar = ViewBag.Car;
+    decimal totalCost = 0;
+}
+<style>
+#service-records-grid {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#service-records-grid td, #service-records-grid th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#service-records-grid tr:nth-child(even){background-color: #f2f2f2;}
+
+#service-records-grid tr:hover {background-color: #ddd;}
+
+#service-records-grid th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #04AA6D;
+  color: white;
+}
+.small-column{
+width: 12%;
+text-align: center;
+}
+.money-small-column{
+width: 16%;
+text-align: right;
+}
+
+
+.large-column{
+width: 60%;
+text-align: left;
+}
+
+.large-column-total{
+width: 84%;
+text-align: right;
+font: bold;
+border: none;
+}
+.small-column-total-cost{
+width: 16%;
+text-align: right;
+}
+.small-column-total-cost-text{
+color: red;
+}
+
+
+.total-row{
+    background-color: #d9faeb;
+}
+
+
+
+</style>
+
+<div style="width: 80rem;">
+    <form style="width: 98%;" asp-controller="ServiceRecord" asp-action= "NewServiceRecord">
+        <div style = "width: 98%;display: flex;">
+            <input style = "width: 19%;margin: 0.5%;" type="date" id="Date" name="Date" placeholder = "Date"><br><br>
+            <input style = "width: 19%;margin: 0.5%;" type="number" id="Mileage" name="Mileage" placeholder = "Mileage"><br><br>
+            <input style = "width: 19%;margin: 0.5%;" type="number" id="EstimateCost" name="EstimateCost" placeholder = "Estimate Cost"><br><br>
+            <input style = "width: 60%;margin: 0.5%;" type="textarea" id="Description" name="Description" placeholder = "Description">
+            <input  type="hidden" id="UserId" name="UserId" value="@myCar.UserId"> 
+            <input  type="hidden" id="VehicleId" name="VehicleId" value="@myCar.Id">
+        </div>
+        <div style = "width: 99%;">
+            <input style = "width: 98%;margin: 0.5%;" type="submit" value="Add a Service Record to @myCar.Year @myCar.Make @myCar.Model">
+        </div>
+    </form>
+
+    <div style="width: 96%;background-color:#fff3e6 ;">
+
+            <table id="service-records-grid">
+                <thead>
+                    <tr>
+                        <th class = "small-column">Date</th>
+                        <th class = "small-column">Mileage</th>
+                        <th class = "large-column">Description</th>
+                        <th class = "money-small-column">Estimated Cost($)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(ServiceRecord record in myRecords){
+                            totalCost += Convert.ToDecimal(@record.EstimateCost);
+                            <tr>
+                                <td class = "small-column">@record.Date</td>
+                                <td class = "small-column">@record.Mileage</td>
+                                <td class = "large-column">@record.Description</td>
+                                <td class = "money-small-column">@record.EstimateCost</td>
+                            </tr>
+                        }
+                </tbody>
+            </table>
+
+             <table id="service-records-grid">
+                <tr class = "total-row">
+                    <td class = "large-column-total"><span style = "text-align: right;">Total($)</span></td>
+                    <td class = "small-column-total-cost"><span class = "small-column-total-cost-text">@totalCost</span></td>
+                </tr>
+            </table>
+    </div>
+
+
+
+</div>

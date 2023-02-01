@@ -9,6 +9,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using mvc_project.Models;
+
 namespace mvc_project
 {
     public class Startup
@@ -24,6 +29,9 @@ namespace mvc_project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<MainDBContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,7 +53,6 @@ namespace mvc_project
             app.UseRouting();
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
@@ -64,6 +71,8 @@ namespace mvc_project
                     name: "default",
                     pattern: "{controller=Type}/{action=Index}/{id?}");
             });
+
+            
         }
     }
 }

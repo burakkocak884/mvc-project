@@ -14369,8 +14369,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/Color/Index.cshtml",
-      "TargetPath": "Views\\Color\\Index.cshtml",
+      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/Car/Index.cshtml",
+      "TargetPath": "Views\\Car\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/ServiceRecord/GetServiceRecords.cshtml",
+      "TargetPath": "Views\\ServiceRecord\\GetServiceRecords.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14384,8 +14389,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/Type/Index.cshtml",
-      "TargetPath": "Views\\Type\\Index.cshtml",
+      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/ServiceRecord/Index.cshtml",
+      "TargetPath": "Views\\ServiceRecord\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/ServiceRecord/NewServiceRecord.cshtml",
+      "TargetPath": "Views\\ServiceRecord\\NewServiceRecord.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14409,8 +14419,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/List/Index.cshtml",
-      "TargetPath": "Views\\List\\Index.cshtml",
+      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/Car/NewCarView.cshtml",
+      "TargetPath": "Views\\Car\\NewCarView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/burakkocak/Development/dotnetmvc-project/mvc-project/Views/History/Index.cshtml",
+      "TargetPath": "Views\\History\\Index.cshtml",
       "FileKind": "mvc"
     }
   ],

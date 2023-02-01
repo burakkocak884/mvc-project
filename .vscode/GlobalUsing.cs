@@ -1,0 +1,1 @@
+global using Auth0.AspNetCore.Authentication;
