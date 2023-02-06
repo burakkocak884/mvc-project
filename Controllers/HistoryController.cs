@@ -34,18 +34,9 @@ namespace mvc_project.Controllers
         public IActionResult Index()
         {
             string carAndServiceRecordQuery = "SELECT service.\"Id\", service.\"Date\", car.\"Year\", car.\"Make\", car.\"Model\", service.\"Mileage\", service.\"Description\", service.\"EstimateCost\" FROM \"Cars\" car JOIN \"ServiceRecords\" service ON car.\"Id\" = service.\"VehicleId\"";
-            //string carAndServiceRecordQuery = "SELECT * FROM 'Cars' cars WHERE 'Year' = 2014";
             ViewBag.ServiceRecordsHistory =  _dbContext.ServiceRecordsHistory.FromSqlRaw(carAndServiceRecordQuery).ToList();
-            //ViewBag.CarList = _dbContext.Cars.ToList();
-            //ViewBag.ServiceRecords = GetAllServiceRecords<ServiceRecord>();
-            // List<ServiceRecordHistory> history = new List<ServiceRecordHistory>();
-
-            // foreach(ServiceRecord record in ServiceRecords){
-            //     history.Add(new ServiceRecordHistory{Date = record.Date, Car = "", Mileage = record.Mileage, Description = record.Description, EstimateCost = record.EstimateCost});
-
-            // }
-            //ViewBag.Cars = _dbContext.Cars;
-            //ViewBag.NumberOfServiceRecords = _dbContext.ServiceRecords.Count();
+            ViewBag.Cars = _dbContext.Cars;
+           
             return View();
         }
 
